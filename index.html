@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador de QR sin anuncios</title>
+    <meta name="description" content="Pega un enlace y obtén tu QR. Sin anuncios, sin registro, todo en tu navegador." />
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <main class="app">
+      <section class="panel">
+        <h1>Pega un enlace, obtén tu QR , sin anuncios ni registro.</h1>
+        <p class="lead">Rapido, personalizable, facil y sencillo.</p>
+
+        <label class="field" for="url">Enlace o texto</label>
+        <input id="url" type="text" inputmode="url" autocomplete="off" spellcheck="false"
+               placeholder="https://mipagina.com" autofocus />
+        <p id="message" class="message" role="status" aria-live="polite"></p>
+
+        <div class="options">
+          <p class="field">Personalizar</p>
+          <div class="options-grid">
+            <div>
+              <label class="field" for="size">Tamaño</label>
+              <select id="size">
+                <option value="128">128 px</option>
+                <option value="256" selected>256 px</option>
+                <option value="512">512 px</option>
+              </select>
+            </div>
+            <div>
+              <label class="field" for="ecc">Corrección de errores</label>
+              <select id="ecc">
+                <option value="L">Baja (L)</option>
+                <option value="M" selected>Media (M)</option>
+                <option value="Q">Alta (Q)</option>
+                <option value="H">Máxima (H)</option>
+              </select>
+            </div>
+            <div>
+              <label class="field" for="dark">Color del QR</label>
+              <input id="dark" type="color" value="#14213d" />
+            </div>
+            <div>
+              <label class="field" for="light">Color de fondo</label>
+              <input id="light" type="color" value="#ffffff" />
+            </div>
+            <div class="logo-field">
+              <label class="field" for="logo">Logo(opcional)</label>
+              <input id="logo" type="file" accept="image/*" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="result" aria-label="Vista previa del QR">
+        <div class="frame">
+          <canvas id="qr" width="512" height="512"></canvas>
+          <p id="empty" class="empty">Tu QR estara aqui</p>
+        </div>
+        <div class="actions">
+          <button id="dl-png" type="button" disabled>Descargar PNG</button>
+          <button id="dl-svg" type="button" class="secondary" disabled>Descargar SVG</button>
+          <button id="copy" type="button" class="secondary" disabled>Copiar imagen</button>
+        </div>
+      </section>
+      <footer class="credit center">
+        Hecho por <a href="https://github.com/mcJossef" target="_blank" rel="noopener">Jossef muñoz</a>.
+        <a href="https://github.com/mcJossef/generador-qr" target="_blank" rel="noopener">Código en GitHub</a>
+      </footer>
+    </main>
+  </body>
+</html>
